@@ -82,3 +82,50 @@ print()
 // task 3: solve this problem using each of the 3 loops
 // print out the first 20 even numbers
 // 2, 4, 6, ... 40
+// while loop
+var i = 2
+while i <= 40 {
+    print(i, terminator: " ")
+    i += 2
+}
+print()
+
+// repeat while loop
+i = 2
+repeat {
+    print(i, terminator: " ")
+    i += 2
+} while i <= 40
+print()
+
+// for in loop
+for i in stride(from: 2, to: 42, by: 2) {
+    print(i, terminator: " ")
+}
+print()
+
+// MARK: - Optionals
+// an optional is a variable that can either store a value OR nil
+var myOptionalInt: Int? = nil
+// to find out if there is a value in myOptionalInt, we need to "unwrap" it
+// 2 ways to unwrap
+// 1. force unwrapping (not best practice)
+myOptionalInt = 10
+var myInt: Int = myOptionalInt!
+print(myInt)
+
+// 2. optional binding (best practice)
+// if there is a value in the optional, store it in a temporary variable
+// then use that variable safely
+if let myInt2 = myOptionalInt {
+    // safely use myInt2
+    print(myInt2)
+}
+else {
+    print("myOptionalInt is nil")
+}
+
+// caution: don't be tempted to do this...
+if myOptionalInt != nil {
+    myInt = myOptionalInt!
+}
