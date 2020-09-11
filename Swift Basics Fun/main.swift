@@ -129,3 +129,56 @@ else {
 if myOptionalInt != nil {
     myInt = myOptionalInt!
 }
+
+// warm up task
+//var friends = ["Chandler", "Ross", "Monica", "Rachel"]
+//print(friends)
+//print(friends.count)
+//friends.insert("Joey", at: 1)
+//print(friends)
+//
+//print("Enter a name to remove: ", terminator: "")
+//let inputStringOptional = readLine()
+//if let inputString = inputStringOptional {
+//    print("trying to remove \(inputString)")
+//    let optionalIndex = friends.firstIndex(of: inputString)
+//    if let myIndex = optionalIndex {
+//        friends.remove(at: myIndex)
+//        print(friends)
+//
+//        //let myIntOptional = Int(inputString)
+//    }
+//}
+
+// MARK: - Functions
+// no params, no return
+func sayHello() {
+    print("hello")
+}
+// in main.swift we can have executable code outside of a function
+sayHello()
+
+// one param, no return
+// message is both the internal and external name
+func say(message: String) {
+    print(message)
+}
+say(message: "hola") // message is the argument label (external parameter name)
+
+// task 4: define/call a function that accepts radius and prints
+// out the area of a circle with that radius
+// withRadius is the external parameter name
+func computeCircleArea(withRadius radius: Double) {
+    let area = Double.pi * pow(radius, 2)
+    print(area)
+}
+// reads like an english setence
+computeCircleArea(withRadius: 5.0)
+
+// _ is the anonymous variable name
+// one param, with return type
+func computeCircleArea2(_ radius: Double) -> Double {
+    let area = Double.pi * pow(radius, 2)
+    return(area)
+}
+print(computeCircleArea2(5.0))
