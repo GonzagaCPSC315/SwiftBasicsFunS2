@@ -182,3 +182,58 @@ func computeCircleArea2(_ radius: Double) -> Double {
     return(area)
 }
 print(computeCircleArea2(5.0))
+
+// objects that are enums or structs are pass by value
+// objects that are classes are pass by reference
+// Int, Double, Array, String, Bool, etc. are structs
+// to pass a struct by reference, use the inout keyword
+func increment(value: inout Int, by incrementValue: Int) {
+    value += incrementValue // value is an alias... changes persist to the calling code
+}
+var y = 5
+increment(value: &y, by: 100)
+print(y)
+
+// MARK: - Strings
+// a String is a sequence of Characters
+// a Character is one or more Unicodes
+// 143,000+ unicode characters
+// Swift is fully unicode compliant
+// ctrl + cmd + spacebar bring up the character viewer
+var dragon = "🐉"
+print(dragon)
+var 🐉 = "dragon"
+print(🐉)
+// concatenation +
+// relational operators < <= > >=
+// equality operators == !=
+// useful properties (count, isEmpty, etc.) and methods (lowercased(), contains(), hasSuffix(), ...)
+// string indexing
+// you cannot do [0]
+// instead you have to use String.Index object
+var course = "CPSC315"
+// print the first C
+let indexOfFirstCharacter = course.startIndex
+print(course[indexOfFirstCharacter]) // like [0]
+
+// print the 3
+let indexOfFourthCharacter = course.index(course.startIndex, offsetBy: 4)
+print(course[indexOfFourthCharacter]) // like [4]
+
+// task 5: define/call a function that accepts two strings
+// return true if the two strings have the same last character
+// return false otherwise
+// "gonzaga", "zebra" -> True
+// "gonzaga", "spokane" -> False
+
+func hasSameLastCharacter(_ string1: String, _ string2: String) -> Bool {
+    // should check to make sure both strings have at least one character
+    let lastIndex1 = string1.index(before: string1.endIndex)
+    let lastIndex2 = string2.index(before: string2.endIndex)
+
+    return string1[lastIndex1] == string2[lastIndex2]
+}
+
+print(hasSameLastCharacter("gonzaga", "zebra"))
+print(hasSameLastCharacter("gonzaga", "spokane"))
+
